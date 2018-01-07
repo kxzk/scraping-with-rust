@@ -6,4 +6,5 @@ authors = ["kade killary <kadekillary@protonmail.com>"]
 [dependencies]
 reqwest = "*"
 select = "*"
+scraper = "*"
 prettytable-rs = "*"

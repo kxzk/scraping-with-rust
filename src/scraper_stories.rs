@@ -4,12 +4,12 @@ extern crate scraper;
 use scraper::{Html, Selector};
 
 fn main() {
-    hn_headlines();
+    hn_headlines("https://new.ycombinator.com");
 }
 
-fn hn_headlines() {
+fn hn_headlines(url: &str) {
 
-   let mut resp = reqwest::get("https://news.ycombinator.com").unwrap(); 
+   let mut resp = reqwest::get(url).unwrap(); 
    assert!(resp.status().is_success());
    let body = resp.text().unwrap();
    let fragment = Html::parse_document(&body);

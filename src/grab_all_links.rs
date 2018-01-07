@@ -5,12 +5,12 @@ use select::document::Document;
 use select::predicate::Name;
 
 fn main() {
-    hacker_news();
+    hacker_news("https://news.ycombinator.com");
 }
 
-fn hacker_news() {
+fn hacker_news(url: &str) {
 
-    let mut resp = reqwest::get("https://news.ycombinator.com").unwrap();
+    let resp = reqwest::get(url).unwrap();
     assert!(resp.status().is_success());
 
     Document::from_read(resp)

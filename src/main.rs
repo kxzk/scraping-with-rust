@@ -8,12 +8,12 @@ use select::predicate::{Class, Name, Predicate};
 use prettytable::Table;
 
 fn main() {
-    hacker_news();
+    hacker_news("https://news.ycombinator.com");
 }
 
-fn hacker_news() {
+fn hacker_news(url: &str) {
 
-    let resp = reqwest::get("https://news.ycombinator.com").unwrap();
+    let resp = reqwest::get(url).unwrap();
     assert!(resp.status().is_success());
 
     let document = Document::from_read(resp).unwrap();
@@ -34,6 +34,8 @@ fn hacker_news() {
         // otherwise table will look mangled by long URLs
         let url_trim = url_txt.trim_left_matches('/');
         let rank_story = format!(" | {} | {}", rank.text(), story);
+        // FdBybl-> is formatting syntax specific to
+        // prettytable
         table.add_row(row![FdBybl->rank_story]);
         table.add_row(row![Fy->url_trim]);
     }
