@@ -1,5 +1,7 @@
 # Web Scraping With Rust
 
+![](https://img.shields.io/github/license/mashape/apistatus.svg)
+
 In this post I'm going to explore web scraping in Rust through a basic [Hacker News](https://news.ycombinator.com) CLI. My hope is to point out resources for future Rustaceans interested in web scraping. Plus, highlight Rust's viability as a scripting language for everyday use.
 
 ## Scraping Ecosystem
