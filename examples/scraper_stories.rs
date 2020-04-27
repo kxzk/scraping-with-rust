@@ -4,7 +4,7 @@ extern crate scraper;
 use scraper::{Html, Selector};
 
 fn main() {
-    hn_headlines("https://new.ycombinator.com");
+    hn_headlines("https://news.ycombinator.com");
 }
 
 fn hn_headlines(url: &str) {
