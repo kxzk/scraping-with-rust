@@ -4,6 +4,8 @@
 
 In this post I'm going to explore web scraping in Rust through a basic [Hacker News](https://news.ycombinator.com) CLI. My hope is to point out resources for future Rustaceans interested in web scraping. Plus, highlight Rust's viability as a scripting language for everyday use.
 
+* [updated/simplified working version](https://github.com/kadekillary/scraping-with-rust/tree/master/hack-scraper)
+
 ## Scraping Ecosystem
 
 Typically, when faced with web scraping most people don't run to a low-level systems programming language. Given the relative simplicity of scraping it would appear to be overkill. However, Rust makes this process fairly painless.
