@@ -2,9 +2,9 @@
 
 ![](https://img.shields.io/github/license/mashape/apistatus.svg)
 
-In this post I'm going to explore web scraping in Rust through a basic [Hacker News](https://news.ycombinator.com) CLI. My hope is to point out resources for future Rustaceans interested in web scraping. Plus, highlight Rust's viability as a scripting language for everyday use.
+In this post I'm going to explore web scraping in Rust through a basic [Hacker News](https://news.ycombinator.com) CLI. My hope is to point out resources for future Rustaceans interested in web scraping. Plus, highlight Rust's viability as a scripting language for everyday use. Lastly, feel free to send through a PR to help improve the repo or demos.
 
-* [updated/simplified working version](https://github.com/kadekillary/scraping-with-rust/tree/master/hack-scraper)
+> **Note**: for a simplififed recent version - [here](https://github.com/kadekillary/scraping-with-rust/tree/master/hack-scraper)
 
 ## Scraping Ecosystem
 
@@ -29,6 +29,10 @@ I'll present a couple different scripts to get a feel for each crate.
 ## Grabbing All Links
 
 The first script will perform a fairly basic task: grabbing all links from the page. For this, we'll utilize `reqwest` and `select.rs`. As you can see the syntax is fairly concise and straightforward.
+
+```bash
+cargo run --example grab_all_links
+```
 
 ```rust
 extern crate reqwest;
@@ -64,6 +68,8 @@ For the second example we'll use the `scraper` crate. The main advantage of `scr
 ![css-select](https://i.imgur.com/Ne5KPQE.png)
 
 Now that we know the post headline translates to `.storylink` we can retrieve it with ease.
+
+> **Note**: not working at the moment - use as reference
 
 ```rust
 extern crate reqwest;
@@ -109,6 +115,10 @@ The first thing to do in this situation is inspect the element of the page. Spec
 ![inspect](https://i.imgur.com/qocLhE2.jpg)
 
 From the image it's pretty clear it's a class called `"athing"`. We need the top level attribute in order to iterate through every occurrence and select our desired fields.
+
+```bash
+cargo run --example rank_story_link
+```
 
 ```rust
 extern crate reqwest;
@@ -166,6 +176,10 @@ This next part will build off of the [PrettyTable](https://github.com/phsym/pret
 
 One of the benefits of PrettyTable is it's ability add custom formatting. Thus, for our example we will add an orange background for a consistent look.
 
+```bash
+cargo run --example final_demo
+```
+
 ```rust
 // specifying we'll be using a macro from
 // the prettytable crate (ex: row!())
@@ -219,7 +233,7 @@ fn hacker_news(url: &str) {
 
 The end result of running this script is as follows:
 
-![final](https://i.imgur.com/eNlN22v.png)
+![final](https://i.imgur.com/r7k8H0D.png)
 
 Hopefully, this brief intro serves as a good jumping off point for exploring Rust as an everyday tool. Despite Rust being a statically typed, compiled, and non-gc language it remains a joy to work with, especially [Cargo](https://doc.rust-lang.org/cargo/) - Rust's package manager. If you are considering learning a low level language for speed concerns, and are coming from a high-level language such as Python or Javasciprt, Rust is a fabolous choice.
 
